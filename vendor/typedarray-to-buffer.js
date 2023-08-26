@@ -7,6 +7,7 @@
  *
  * `npm install typedarray-to-buffer`
  */
+import { Buffer } from 'buffer';
 
 export default function typedarrayToBuffer(arr) {
     return ArrayBuffer.isView(arr)
