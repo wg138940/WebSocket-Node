@@ -1,1 +1,1 @@
-export { default } from "./lib/websocket";
+export { default } from "./lib/websocket.js";
