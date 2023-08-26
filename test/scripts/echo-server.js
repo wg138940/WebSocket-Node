@@ -15,8 +15,8 @@
  *  limitations under the License.
  ***********************************************************************/
 
-var WebSocketServer = require('../../lib/WebSocketServer');
-var http = require('http');
+import WebSocketServer from '../../lib/WebSocketServer.js';
+import { createServer } from 'http';
 
 var args = { /* defaults */
     port: '8080',
@@ -38,7 +38,7 @@ var debug = args.debug;
 console.log('WebSocket-Node: echo-server');
 console.log('Usage: ./echo-server.js [--port=8080] [--debug]');
 
-var server = http.createServer(function(request, response) {
+var server = createServer(function(request, response) {
     if (debug) { console.log((new Date()) + ' Received request for ' + request.url); }
     response.writeHead(404);
     response.end();

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-var test = require('tape');
-var WebSocket = require('../../lib/W3CWebSocket');
-var startEchoServer = require('../shared/start-echo-server');
+import test from 'tape';
+import WebSocket from '../../lib/W3CWebSocket.js';
+import startEchoServer from '../shared/start-echo-server.js';
 
 test('W3CWebSockets adding event listeners with ws.onxxxxx', function(t) {
   var counter = 0;

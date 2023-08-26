@@ -1,8 +1,8 @@
-var test = require('tape');
+import test from 'tape';
 
-var WebSocketClient = require('../../lib/WebSocketClient');
-var server = require('../shared/test-server');
-var stopServer = server.stopServer;
+import WebSocketClient from '../../lib/WebSocketClient.js';
+import { stopServer as _stopServer, prepare } from '../shared/test-server.js';
+var stopServer = _stopServer;
 
 test('Request can only be rejected or accepted once.', function(t) {
   t.plan(6);
@@ -11,7 +11,7 @@ test('Request can only be rejected or accepted once.', function(t) {
     stopServer();
   });
   
-  server.prepare(function(err, wsServer) {
+  prepare(function(err, wsServer) {
     if (err) {
       t.fail('Unable to start test server');
       return t.end();
@@ -58,7 +58,7 @@ test('Protocol mismatch should be handled gracefully', function(t) {
   var wsServer;
   
   t.test('setup', function(t) {
-    server.prepare(function(err, result) {
+    prepare(function(err, result) {
       if (err) {
         t.fail('Unable to start test server');
         return t.end();

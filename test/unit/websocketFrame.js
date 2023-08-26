@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-var test = require('tape');
-var bufferEqual = require('buffer-equal');
-var WebSocketFrame = require('../../lib/WebSocketFrame');
-var utils = require('../../lib/utils');
-var bufferAllocUnsafe = utils.bufferAllocUnsafe;
-var bufferFromString = utils.bufferFromString;
+import test from 'tape';
+import bufferEqual from 'buffer-equal';
+import WebSocketFrame from '../../lib/WebSocketFrame.js';
+import { bufferAllocUnsafe as _bufferAllocUnsafe, bufferFromString as _bufferFromString } from '../../lib/utils.js';
+var bufferAllocUnsafe = _bufferAllocUnsafe;
+var bufferFromString = _bufferFromString;
 
 
 test('Serializing a WebSocket Frame with no data', function(t) {

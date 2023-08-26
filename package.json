@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "bufferutil": "^4.0.1",
+    "crypto-js": "^4.1.1",
     "debug": "^2.2.0",
     "es5-ext": "^0.10.50",
     "typedarray-to-buffer": "^3.1.5",
@@ -38,9 +39,9 @@
     "buffer-equal": "^1.0.0",
     "gulp": "^4.0.2",
     "gulp-jshint": "^2.0.4",
-    "jshint-stylish": "^2.2.1",
     "jshint": "^2.0.0",
-    "tape": "^4.9.1"
+    "jshint-stylish": "^2.2.1",
+    "tape": "^5.6.6"
   },
   "config": {
     "verbose": false
@@ -53,6 +54,6 @@
   "directories": {
     "lib": "./lib"
   },
-  "browser": "lib/browser.js",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "type": "module"
 }

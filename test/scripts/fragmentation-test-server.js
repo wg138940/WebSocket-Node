@@ -16,11 +16,11 @@
  ***********************************************************************/
 
 
-var WebSocketServer = require('../../lib/WebSocketServer');
-var WebSocketRouter = require('../../lib/WebSocketRouter');
-var bufferAllocUnsafe = require('../../lib/utils').bufferAllocUnsafe;
-var http = require('http');
-var fs = require('fs');
+import WebSocketServer from '../../lib/WebSocketServer.js';
+import WebSocketRouter from '../../lib/WebSocketRouter.js';
+import { bufferAllocUnsafe } from '../../lib/utils.js';
+import { createServer } from 'http';
+import { readFile } from 'fs';
 
 console.log('WebSocket-Node: Test server to spit out fragmented messages.');
 
@@ -50,10 +50,10 @@ else {
     console.log('Use --help for usage information.');
 }
 
-var server = http.createServer(function(request, response) {
+var server = createServer(function(request, response) {
     console.log((new Date()) + ' Received request for ' + request.url);
     if (request.url === '/') {
-        fs.readFile('fragmentation-test-page.html', 'utf8', function(err, data) {
+        readFile('fragmentation-test-page.html', 'utf8', function(err, data) {
             if (err) {
                 response.writeHead(404);
                 response.end();

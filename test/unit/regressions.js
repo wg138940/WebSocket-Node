@@ -1,7 +1,7 @@
-var test = require('tape');
+import test from 'tape';
 
-var WebSocketClient = require('../../lib/WebSocketClient');
-var startEchoServer = require('../shared/start-echo-server');
+import WebSocketClient from '../../lib/WebSocketClient.js';
+import startEchoServer from '../shared/start-echo-server.js';
 
 test('Issue 195 - passing number to connection.send() shouldn\'t throw', function(t) {
   startEchoServer(function(err, echoServer) {

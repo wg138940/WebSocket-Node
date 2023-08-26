@@ -1,12 +1,12 @@
-var http = require('http');
-var WebSocketServer = require('../../lib/WebSocketServer');
+import { createServer } from 'http';
+import WebSocketServer from '../../lib/WebSocketServer.js';
 
 var server;
 var wsServer;
 
-function prepare(callback) {
+export function prepare(callback) {
   if (typeof(callback) !== 'function') { callback = function(){}; }
-  server = http.createServer(function(request, response) {
+  server = createServer(function(request, response) {
     response.writeHead(404);
     response.end();
   });
@@ -29,7 +29,7 @@ function prepare(callback) {
   });
 }
 
-function stopServer() {
+export function stopServer() {
   try {
     wsServer.shutDown();
     server.close();
@@ -39,7 +39,3 @@ function stopServer() {
   }
 }
 
-module.exports = {
-  prepare: prepare,
-  stopServer: stopServer
-};

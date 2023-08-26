@@ -2,18 +2,18 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 // var heapdump = require('heapdump');
 // var memwatch = require('memwatch');
-var fs = require('fs');
-var WebSocketServer = require('../../lib/websocket').server;
-var https = require('https');
+import { readFileSync } from 'fs';
+import { server as WebSocketServer } from '../../lib/websocket.js';
+import { createServer } from 'https';
 
 var activeCount = 0;
 
 var config = { 
-    key: fs.readFileSync( 'privatekey.pem' ), 
-    cert: fs.readFileSync( 'certificate.pem' )  
+    key: readFileSync( 'privatekey.pem' ), 
+    cert: readFileSync( 'certificate.pem' )  
 };
 
-var server = https.createServer( config );
+var server = createServer( config );
 
 server.listen(8080, function() {
     console.log((new Date()) + ' Server is listening on port 8080 (wss)');

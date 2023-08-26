@@ -15,8 +15,8 @@
  *  limitations under the License.
  ***********************************************************************/
 
-var WebSocketServer = require('../../lib/websocket').server;
-var express = require('express');
+import { server as WebSocketServer } from '../../lib/websocket.js';
+import express from 'express';
 
 var app = express.createServer();
 

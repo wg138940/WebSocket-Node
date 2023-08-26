@@ -1,4 +1,10 @@
-module.exports = startEchoServer;
+export default startEchoServer;
+import path from 'path';
+import childProcess from 'child_process';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function startEchoServer(outputStream, callback) {
   if ('function' === typeof outputStream) {
@@ -9,11 +15,11 @@ function startEchoServer(outputStream, callback) {
     callback = function(){};
   }
   
-  var path = require('path').join(__dirname + '/../scripts/echo-server.js');
+  var serverPath = path.join(__dirname + '/../scripts/echo-server.js');
   
-  console.log(path);
+  console.log(serverPath);
     
-  var echoServer = require('child_process').spawn('node', [ path ]);
+  var echoServer = childProcess.spawn('node', [ serverPath ]);
   
   var state = 'starting';
   

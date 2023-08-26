@@ -4,12 +4,14 @@
 
 // bufferlist.js
 // Treat a linked list of buffers as a single variable-size buffer.
-var Buffer = require('buffer').Buffer;
-var EventEmitter = require('events').EventEmitter;
-var bufferAllocUnsafe = require('../lib/utils').bufferAllocUnsafe;
+import { Buffer } from 'buffer';
+import { EventEmitter } from 'events';
+import { bufferAllocUnsafe } from '../lib/utils.js';
+import util from 'util';
 
-module.exports = BufferList;
-module.exports.BufferList = BufferList; // backwards compatibility
+export default BufferList;
+const _BufferList = BufferList;
+export { _BufferList as BufferList }; // backwards compatibility
 
 function BufferList(opts) {
     if (!(this instanceof BufferList)) return new BufferList(opts);
@@ -188,4 +190,4 @@ function BufferList(opts) {
         return self.take('binary');
     };
 }
-require('util').inherits(BufferList, EventEmitter);
+util.inherits(BufferList, EventEmitter);

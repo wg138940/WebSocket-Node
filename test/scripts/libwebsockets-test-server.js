@@ -16,10 +16,10 @@
  ***********************************************************************/
 
 
-var WebSocketServer = require('../../lib/WebSocketServer');
-var WebSocketRouter = require('../../lib/WebSocketRouter');
-var http = require('http');
-var fs = require('fs');
+import WebSocketServer from '../../lib/WebSocketServer.js';
+import WebSocketRouter from '../../lib/WebSocketRouter.js';
+import { createServer } from 'http';
+import { readFile } from 'fs';
 
 var args = { /* defaults */
     secure: false
@@ -52,10 +52,10 @@ if (args.secure) {
     return;
 }
 
-var server = http.createServer(function(request, response) {
+var server = createServer(function(request, response) {
     console.log((new Date()) + ' Received request for ' + request.url);
     if (request.url === '/') {
-        fs.readFile('libwebsockets-test.html', 'utf8', function(err, data) {
+        readFile('libwebsockets-test.html', 'utf8', function(err, data) {
             if (err) {
                 response.writeHead(404);
                 response.end();

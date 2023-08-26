@@ -15,9 +15,9 @@
  *  limitations under the License.
  ***********************************************************************/
 
-var WebSocketClient = require('../../lib/WebSocketClient');
-var wsVersion = require('../../lib/websocket').version;
-var querystring = require('querystring');
+import WebSocketClient from '../../lib/WebSocketClient.js';
+import { version as wsVersion } from '../../lib/websocket.js';
+import { stringify } from 'querystring';
 
 var args = { /* defaults */
     secure: false,
@@ -96,7 +96,7 @@ function runTestCase(caseIndex, caseCount, callback) {
         });
     });
     
-    var qs = querystring.stringify({
+    var qs = stringify({
         case: caseIndex,
         agent: 'WebSocket-Node Client v' + wsVersion
     });
@@ -125,7 +125,7 @@ function getCaseCount(callback) {
 
 function updateReport(callback) {
     var client = new WebSocketClient();
-    var qs = querystring.stringify({
+    var qs = stringify({
         agent: 'WebSocket-Node Client v' + wsVersion
     });
     client.on('connect', function(connection) {
