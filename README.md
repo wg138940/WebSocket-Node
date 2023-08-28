@@ -1,3 +1,11 @@
+To install (from the GitHub repository), please use the following command: 
+
+```
+npm install https://github.com/wg138940/WebSocket-Node
+```
+
+Please note that this version has not been published to npm and may require additional steps or considerations during installation and usage.
+
 WebSocket Client & Server Implementation for Node
 =================================================
 
